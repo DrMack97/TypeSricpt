@@ -1,6 +1,6 @@
 let DNI: string
-let num: string
+let Num: string
 
 DNI = "DNI"
-num = " 26673339"
+Num = " 26673339"
 console.log(DNI + num)
