@@ -1,4 +1,9 @@
+/**
+ * Suma acumulativa 
 
+Crea un programa que demani números a l'usuari constantment i els vagi sumant. 
+El programa s'aturarà quan l'usuari introdueixi un 0. Llavors mostrarà la suma total. 
+ */
 
 console.log('CONTADOR acomulativo: ')
 
@@ -13,8 +18,6 @@ while(numeros != 0) {
 
     console.log('sumatoria: ' 
         + contadorAcomulativo + ' numero elegido ' + numeros)
-
-    
 }
 /*
 en este ejercicio has creado la misma varaible dentro del bucle 
