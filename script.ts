@@ -21,7 +21,7 @@ div1.addEventListener('click',(event)=> {
     console.log(event)
     console.log(event.target);
     console.log(event.currentTarget);
-}
+})
 
 /*function func1(param1:String,param2:number):string{
     return "hola";
