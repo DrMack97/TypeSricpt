@@ -9,15 +9,30 @@
 <!-- defer es para que el link se ejecute al final de todo-->
 </head>
 <body>
+    Nombre:
     <input id="inputid" type="text">
-    <button id="sendid" >SEND FROM</button>
+    <div id="textError" class="error">El texto debe ser mas largo que 4</div>
+    <br>
+    Ciclo:
+    <select id="ciclo">
+        <option value="">--Selecciona--</option>
+        <option value="1">DAM</option>
+        <option value="2">DAW</option>
+    </select>
+    <div id="select"
+    <br>
+    Genero: 
+    Hombre:<input type="radio"  name="genero">
+    Mujer:<input type="radio" name="genero">
+    <div id="checkError" class="error">campo obligatorio</div>
+
+    <br>
+    Accepta los terminos:
+    <input type="checkbox">
+    <br>
+    <button id="sendButtun"> Send Form </button>
     <br>
     <br>
-    <div div-1 = "div1">
-        DIV-1
-        <div id="div-2"> 
-            DIV-2
-        </div>
-    </div>
+    
 </body>
 </html>

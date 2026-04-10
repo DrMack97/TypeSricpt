@@ -1,9 +1,19 @@
 .inputError{
-    border: 1px solid red;
-}
+    border: 3px solid red;
+/*}
 div{
     border: 1px solid black;
+*/
+
 }
 #div2{
     width: 50px;
+}
+
+/*#textError, #SelectError{
+    display: none;
+}*/
+
+.error{
+    display: none;
 }
