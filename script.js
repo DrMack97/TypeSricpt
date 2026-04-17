@@ -3,7 +3,7 @@
 /* para hacer la conversion:
     - tsc .\script.ts -
 */
-//declarar tipo de variable e indicar que viene de un 
+//declarar tipo de variable e indicar que viene de un elemento de nuestro html
 let button = document.querySelector('#sendButtun');
 let input = document.querySelector('#inputid');
 let errorDiv = document.querySelector('#textError');
@@ -79,16 +79,42 @@ divs.forEach(div => {
     console.log(div.id);
     console.log(div.textContent);
 });
-//declarar el tipo de dato de una variable
+//declaramos tipo de variable e indicar que viene de un elemento de nuestro html
 let button2 = document.querySelector('#boton_crear');
 let ContainerDiv = document.querySelector('#container');
 button2.addEventListener('click', () => {
     console.log('click');
-    //crear un nuevo div
+    // //crear un nuevo div
+    // let div = document.createElement('div');
+    // div.textContent = "Nuevo div creado";
+    // div.id= "divNuevo";
+    // ContainerDiv.appendChild(div);
+    // // crear un link y printarlo
+    // let link = document.createElement('a');
+    // link.href= "https://www.google.com";
+    // link.textContent = "Link to google";
+    // ContainerDiv.appendChild(link);
+    // ContainerDiv.innerHTML += `<div id="divNuevo"> Nuevo div creado </div> <a href="https://www.google.com"> Link to google </a>`;
+    // ContainerDiv.innerHTML += '<a href="https://www.google.com"> Link to google </a>';
+    ContainerDiv.innerHTML += `
+        <div id="divNuevo"> 
+            Nuevo div creado
+            <a href="https://www.google.com">
+                Link to google 
+            </a>
+        </div>
+    `;
     let div = document.createElement('div');
-    div.textContent = "Nuevo div creado";
-    div.id = "divNuevo";
-    ContainerDiv.appendChild(div);
+    div.textContent = "este div se creo con createElement";
+    div.id = "divNuevo2";
+    let link = document.createElement('a');
+    link.href = "https://www.google.com";
+    // indica que el va dentro del primero 
+});
+let textArea = document.querySelector('textArea');
+textArea.addEventListener('input', () => {
+    console.log('input');
+    console.log(textArea);
 });
 // let div1:HTMLElement = (document.querySelector('#div1') as HTMLElement);
 // div1.addEventListener('click',(event)=> {
