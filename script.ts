@@ -5,12 +5,17 @@
     - tsc .\script.ts -
 */
 
-let button: HTMLButtonElement  = (document.getElementById('sendButtun') as HTMLButtonElement);
+//declarar tipo de variable e indicar que viene de un elemento de nuestro html
+
+let button: HTMLButtonElement = (document.querySelector('#sendButtun') as HTMLButtonElement);
 let input: HTMLInputElement = (document.querySelector('#inputid') as HTMLInputElement);
 let errorDiv:HTMLElement = (document.querySelector('#textError') as HTMLElement); 
 let selectError: HTMLElement = (document.querySelector('#textError') as HTMLElement); 
 let checkError: HTMLElement = (document.querySelector('#textError') as HTMLElement); 
 let radioError: HTMLElement = (document.querySelector('#textError') as HTMLElement); 
+
+let input2: HTMLInputElement = (document.querySelector('#inputid2') as HTMLInputElement);
+let errorDiv2:HTMLElement = (document.querySelector('#textError2') as HTMLElement);
 
 
 button.addEventListener('click',()=>{
@@ -78,6 +83,85 @@ button.addEventListener('click',()=>{
             checkError.style.display = "none";
         }
 });
+
+input2.addEventListener('blur',()=>{
+    let inputValue: string = input2.value;
+
+    if(inputValue.length < 4){
+        input2.classList.add('inputError');
+        errorDiv2.style.display = "inline";
+    }else{
+        input2.classList.remove('inputError')
+        errorDiv2.style.display = "inline";
+        }
+
+})
+
+let divs = document.querySelectorAll('.divs');
+console.log(divs);
+
+divs.forEach(div => {
+    console.log(div.id);
+    console.log(div.textContent);
+})
+
+//declaramos tipo de variable e indicar que viene de un elemento de nuestro html
+
+let button2: HTMLButtonElement = (document.querySelector('#boton_crear') as HTMLButtonElement);
+let ContainerDiv:HTMLElement = (document.querySelector('#container') as HTMLElement); 
+
+button2.addEventListener('click',()=>{
+
+    console.log('click');
+
+    
+    // //crear un nuevo div
+    // let div = document.createElement('div');
+    // div.textContent = "Nuevo div creado";
+    // div.id= "divNuevo";
+
+    // ContainerDiv.appendChild(div);
+
+    // // crear un link y printarlo
+    // let link = document.createElement('a');
+    // link.href= "https://www.google.com";
+    // link.textContent = "Link to google";
+    // ContainerDiv.appendChild(link);
+
+    // ContainerDiv.innerHTML += `<div id="divNuevo"> Nuevo div creado </div> <a href="https://www.google.com"> Link to google </a>`;
+    // ContainerDiv.innerHTML += '<a href="https://www.google.com"> Link to google </a>';
+
+    ContainerDiv.innerHTML += `
+        <div id="divNuevo"> 
+            Nuevo div creado
+            <a href="https://www.google.com">
+                Link to google 
+            </a>
+        </div>
+    `;
+
+    let div = document.createElement('div');
+    div.textContent = "este div se creo con createElement";
+    div.id="divNuevo2";
+
+    let link = document.createElement('a');
+    link.href= "https://www.google.com";
+    // indica que el va dentro del primero 
+
+    
+
+
+
+
+})
+
+let textArea:HTMLElement = (document.querySelector('textArea') as HTMLElement);
+
+textArea.addEventListener('input',()=>{
+    console.log('input');
+    console.log(textArea)
+})
+
 
 // let div1:HTMLElement = (document.querySelector('#div1') as HTMLElement);
 

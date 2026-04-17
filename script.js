@@ -3,12 +3,15 @@
 /* para hacer la conversion:
     - tsc .\script.ts -
 */
-let button = document.getElementById('sendButtun');
+//declarar tipo de variable e indicar que viene de un 
+let button = document.querySelector('#sendButtun');
 let input = document.querySelector('#inputid');
 let errorDiv = document.querySelector('#textError');
 let selectError = document.querySelector('#textError');
 let checkError = document.querySelector('#textError');
 let radioError = document.querySelector('#textError');
+let input2 = document.querySelector('#inputid2');
+let errorDiv2 = document.querySelector('#textError2');
 button.addEventListener('click', () => {
     //validar el campo de texto
     let inputValue = input.value;
@@ -58,6 +61,34 @@ button.addEventListener('click', () => {
     else {
         checkError.style.display = "none";
     }
+});
+input2.addEventListener('blur', () => {
+    let inputValue = input2.value;
+    if (inputValue.length < 4) {
+        input2.classList.add('inputError');
+        errorDiv2.style.display = "inline";
+    }
+    else {
+        input2.classList.remove('inputError');
+        errorDiv2.style.display = "inline";
+    }
+});
+let divs = document.querySelectorAll('.divs');
+console.log(divs);
+divs.forEach(div => {
+    console.log(div.id);
+    console.log(div.textContent);
+});
+//declarar el tipo de dato de una variable
+let button2 = document.querySelector('#boton_crear');
+let ContainerDiv = document.querySelector('#container');
+button2.addEventListener('click', () => {
+    console.log('click');
+    //crear un nuevo div
+    let div = document.createElement('div');
+    div.textContent = "Nuevo div creado";
+    div.id = "divNuevo";
+    ContainerDiv.appendChild(div);
 });
 // let div1:HTMLElement = (document.querySelector('#div1') as HTMLElement);
 // div1.addEventListener('click',(event)=> {
