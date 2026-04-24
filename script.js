@@ -1,5 +1,7 @@
 "use strict";
+// SOLUCIÓN: Crear un document falso para Deno
 // let prova:string = "hola";
+// CTR - MAYUS - I //vista desarrolador el HTML
 /* para hacer la conversion:
     - tsc .\script.ts -
 */
@@ -16,7 +18,7 @@ button.addEventListener('click', () => {
     //validar el campo de texto
     let inputValue = input.value;
     //console.log(inputValue);
-    if (inputValue.length < 4) {
+    if (inputValue.length < 1) {
         input.classList.add('inputError');
         selectError.style.display = "inline";
     }

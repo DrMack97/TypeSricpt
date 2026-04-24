@@ -1,5 +1,8 @@
+// SOLUCIÓN: Crear un document falso para Deno
+
 // let prova:string = "hola";
 
+// CTR - MAYUS - I //vista desarrolador el HTML
 
 /* para hacer la conversion:
     - tsc .\script.ts -
@@ -7,15 +10,19 @@
 
 //declarar tipo de variable e indicar que viene de un elemento de nuestro html
 
+
+
 let button: HTMLButtonElement = (document.querySelector('#sendButtun') as HTMLButtonElement);
 let input: HTMLInputElement = (document.querySelector('#inputid') as HTMLInputElement);
-let errorDiv:HTMLElement = (document.querySelector('#textError') as HTMLElement); 
+let errorDiv:HTMLElement = (document.querySelector('#textError') as HTMLElement);
+
 let selectError: HTMLElement = (document.querySelector('#textError') as HTMLElement); 
 let checkError: HTMLElement = (document.querySelector('#textError') as HTMLElement); 
 let radioError: HTMLElement = (document.querySelector('#textError') as HTMLElement); 
 
 let input2: HTMLInputElement = (document.querySelector('#inputid2') as HTMLInputElement);
 let errorDiv2:HTMLElement = (document.querySelector('#textError2') as HTMLElement);
+
 
 
 button.addEventListener('click',()=>{
@@ -25,7 +32,7 @@ button.addEventListener('click',()=>{
     let inputValue: string = input.value;
 
     //console.log(inputValue);
-    if(inputValue.length < 4){
+    if(inputValue.length < 1){
 
         input.classList.add('inputError');
         
