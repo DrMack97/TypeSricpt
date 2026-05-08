@@ -1,0 +1,374 @@
+/* ==========================================
+   RESET Y BASE
+   ========================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    color: #1a1a1a;
+    background-color: #f4f4f4;
+    padding: 24px;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+a {
+    color: #185fa5;
+}
+
+/* ==========================================
+   TARJETAS (CARD)
+   ========================================== */
+
+/* Cada sección del formulario está envuelta en una card */
+.card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+}
+
+.section-desc {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 14px;
+}
+
+/* ==========================================
+   PRODUCTOS (generados dinámicamente por JS)
+   ========================================== */
+
+#prod-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+/* Cada tarjeta de producto es creada por JS con clase .prod-card */
+.prod-card {
+    background: #f8f8f6;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.prod-card:hover {
+    border-color: #aaa;
+}
+
+/* JS añade la clase .selected cuando el usuario hace clic en un producto */
+.prod-card.selected {
+    border: 2px solid #185fa5;
+    background: #e6f1fb;
+}
+
+.prod-name {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.prod-price {
+    font-size: 13px;
+    color: #666;
+}
+
+.prod-card.selected .prod-price {
+    color: #185fa5;
+}
+
+/* ==========================================
+   CAMPOS DE FORMULARIO
+   ========================================== */
+
+.field {
+    margin-bottom: 14px;
+}
+
+.field label {
+    display: block;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.optional {
+    font-size: 11px;
+    color: #999;
+}
+
+/* Inputs y select comparten el mismo estilo base */
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: #1a1a1a;
+    background: #fff;
+    transition: border-color 0.15s;
+}
+
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #185fa5;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.word-count {
+    font-size: 11px;
+    color: #999;
+    margin-top: 4px;
+}
+
+/* Fila de dos columnas */
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* ==========================================
+   RADIO BUTTONS
+   ========================================== */
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    margin-top: 6px;
+}
+
+.radio-opt {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #1a1a1a;
+}
+
+.radio-opt input[type="radio"] {
+    width: auto;
+    cursor: pointer;
+}
+
+/* ==========================================
+   CHECKBOX
+   ========================================== */
+
+.checkbox-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-field input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.checkbox-field label {
+    display: inline;
+    font-size: 14px;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* ==========================================
+   MENSAJES DE ERROR
+   Ocultos por defecto — JS los muestra añadiendo .show
+   ========================================== */
+
+.error {
+    display: none; /* Oculto por defecto */
+    font-size: 12px;
+    color: #a32d2d;
+    margin-top: 4px;
+}
+
+/* JS añade la clase .show para hacer visible el error */
+.error.show {
+    display: block;
+}
+
+/* Borde rojo en inputs inválidos — JS añade esta clase */
+.inp-error {
+    border-color: #e24b4a !important;
+}
+
+/* ==========================================
+   RESUMEN DEL PEDIDO
+   ========================================== */
+
+/* Cada producto en el carrito — creado dinámicamente por JS */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    padding: 7px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item:last-of-type {
+    border-bottom: none;
+}
+
+.empty-msg {
+    font-size: 13px;
+    color: #999;
+    padding: 6px 0;
+}
+
+/* Botón "quitar" dentro de cada item del carrito */
+.remove-btn {
+    font-size: 11px;
+    color: #a32d2d;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
+.remove-btn:hover {
+    background: #fcebeb;
+}
+
+/* Filas de precio */
+.summary-section {
+    margin-top: 10px;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 10px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    padding: 5px 0;
+    color: #555;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 0 2px;
+}
+
+/* ==========================================
+   BADGES Y UTILIDADES
+   ========================================== */
+
+/* Badge con número de productos en el carrito */
+.counter-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #e6f1fb;
+    color: #185fa5;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+/* Badge de éxito tras confirmar pedido */
+.badge-ok {
+    font-size: 13px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: #eaf3de;
+    color: #3b6d11;
+}
+
+/* Clase utilitaria: oculta elementos (JS quita esta clase para mostrarlos) */
+.hidden {
+    display: none;
+}
+
+/* ==========================================
+   BOTONES
+   ========================================== */
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+button#btn-comprar {
+    padding: 10px 22px;
+    background: #185fa5;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+button#btn-comprar:hover {
+    background: #0c447c;
+}
+
+button#btn-comprar:active {
+    transform: scale(0.98);
+}
+
+/* ==========================================
+   RESUMEN FINAL (generado por JS)
+   ========================================== */
+
+#pedido-resumen p {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 6px;
+    line-height: 1.6;
+}
+
+#pedido-resumen p:first-child {
+    font-weight: 500;
+    color: #3b6d11;
+    font-size: 14px;
+}

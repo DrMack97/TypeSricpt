@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compra</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <!-- defer: el script se ejecuta después de que el HTML esté completamente cargado -->
+</head>
+<body>
+
+    <h1>Tienda</h1>
+
+    <!-- ========== SECCIÓN: PRODUCTOS ========== -->
+    <section class="card">
+        <h2>Selecciona productos</h2>
+        <p class="section-desc">Haz clic en un producto para añadirlo al carrito</p>
+
+        <!-- Los productos se generan dinámicamente desde script.js -->
+        <div id="prod-grid"></div>
+
+        <!-- Mensaje de error si no se selecciona ningún producto -->
+        <div id="prod-error" class="error">Selecciona al menos un producto</div>
+    </section>
+
+    <!-- ========== SECCIÓN: DATOS DE ENVÍO ========== -->
+    <section class="card">
+        <h2>Datos de envío</h2>
+
+        <!-- Fila: Nombre + Email -->
+        <div class="row">
+            <div class="field">
+                <label for="nombre">Nombre completo</label>
+                <input id="nombre" type="text" placeholder="Ana García">
+                <!-- Error que se muestra si el nombre tiene menos de 4 caracteres -->
+                <div id="nombre-err" class="error">Mínimo 4 caracteres</div>
+            </div>
+            <div class="field">
+                <label for="email">Correo electrónico</label>
+                <input id="email" type="text" placeholder="ana@email.com">
+                <div id="email-err" class="error">Introduce un email válido</div>
+            </div>
+        </div>
+
+        <!-- Dirección completa -->
+        <div class="field">
+            <label for="direccion">Dirección de entrega</label>
+            <input id="direccion" type="text" placeholder="Calle Mayor 12, Madrid">
+            <div id="dir-err" class="error">Campo obligatorio</div>
+        </div>
+
+        <!-- Fila: Ciudad + Método de pago -->
+        <div class="row">
+            <div class="field">
+                <label for="ciudad">Ciudad</label>
+                <input id="ciudad" type="text" placeholder="Madrid">
+                <div id="ciudad-err" class="error">Campo obligatorio</div>
+            </div>
+            <div class="field">
+                <label for="pago">Método de pago</label>
+                <!-- Select: value="" = opción vacía/inválida, JS detecta esto para mostrar error -->
+                <select id="pago">
+                    <option value="">-- Selecciona --</option>
+                    <option value="tarjeta">Tarjeta de crédito</option>
+                    <option value="bizum">Bizum</option>
+                    <option value="contra">Contra reembolso</option>
+                </select>
+                <div id="pago-err" class="error">Campo obligatorio</div>
+            </div>
+        </div>
+
+        <!-- Radio buttons: mismo name="envio" = grupo exclusivo (solo uno seleccionable) -->
+        <div class="field">
+            <label>Tipo de envío</label>
+            <div class="radio-group">
+                <label class="radio-opt">
+                    <input type="radio" name="envio" value="estandar">
+                    Estándar (3-5 días)
+                </label>
+                <label class="radio-opt">
+                    <input type="radio" name="envio" value="express">
+                    Express (24h, +4,99€)
+                </label>
+            </div>
+            <div id="envio-err" class="error">Selecciona un tipo de envío</div>
+        </div>
+
+        <!-- Textarea: JS cuenta palabras en tiempo real con evento 'input' -->
+        <div class="field">
+            <label for="notas">
+                Notas adicionales
+                <span class="optional">(opcional)</span>
+            </label>
+            <textarea id="notas" rows="3" placeholder="Instrucciones especiales para la entrega..."></textarea>
+            <div id="palabras-count" class="word-count">0 palabras</div>
+        </div>
+
+        <!-- Checkbox: JS verifica si está marcado con input[type="checkbox"]:checked -->
+        <div class="field checkbox-field">
+            <input type="checkbox" id="terminos">
+            <label for="terminos">
+                Acepto los <a href="#">términos y condiciones</a>
+            </label>
+        </div>
+        <div id="terminos-err" class="error">Debes aceptar los términos</div>
+    </section>
+
+    <!-- ========== SECCIÓN: RESUMEN DEL PEDIDO ========== -->
+    <section class="card">
+        <h2>
+            Resumen del pedido
+            <!-- Badge con número de productos seleccionados, actualizado por JS -->
+            <span id="counter" class="counter-badge">0</span>
+        </h2>
+
+        <!-- Zona de items del carrito — JS inyecta elementos aquí dinámicamente -->
+        <div id="cart-items">
+            <p id="empty-msg" class="empty-msg">Aún no has añadido productos</p>
+        </div>
+
+        <!-- Totales: ocultos hasta que haya productos -->
+        <div id="summary-section" class="summary-section hidden">
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">0,00€</span>
+            </div>
+            <div class="summary-row">
+                <span>Envío</span>
+                <span id="envio-precio">—</span>
+            </div>
+            <div class="total-row">
+                <span>Total</span>
+                <span id="total">0,00€</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== BOTÓN DE ENVÍO ========== -->
+    <div class="actions">
+        <!-- JS adjunta addEventListener('click') a este botón -->
+        <button id="btn-comprar">Confirmar pedido</button>
+        <!-- Badge de éxito: oculto hasta que el formulario sea válido -->
+        <span id="ok-badge" class="badge-ok hidden">Pedido enviado correctamente</span>
+    </div>
+
+    <!-- ========== RESUMEN FINAL (generado dinámicamente) ========== -->
+    <!-- Div vacío: JS inyecta el HTML del resumen aquí tras el envío -->
+    <div id="pedido-resumen" class="card hidden"></div>
+
+</body>
+</html>

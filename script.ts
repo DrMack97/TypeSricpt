@@ -4,13 +4,12 @@
 
 // CTR - MAYUS - I //vista desarrolador el HTML
 
-/* para hacer la conversion:
-    - tsc .\script.ts -
+/* 
+    para hacer la conversion:
+        - tsc .\script.ts -
 */
 
 //declarar tipo de variable e indicar que viene de un elemento de nuestro html
-
-
 
 let button: HTMLButtonElement = (document.querySelector('#sendButtun') as HTMLButtonElement);
 let input: HTMLInputElement = (document.querySelector('#inputid') as HTMLInputElement);
@@ -75,8 +74,6 @@ button.addEventListener('click',()=>{
         }else{
             radioError.style.display = "none";
         }
-
-
 
     //validar el checkbox
         let checkElement: HTMLInputElement = (document.querySelector('input[name="genero"]:checked')) as HTMLInputElement;
