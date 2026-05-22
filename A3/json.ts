@@ -27,7 +27,7 @@ let alumno_obj: alumno[] = JSON.parse(alumnos);
 let div:HTMLElement = (document.querySelector('#div1') as HTMLElement);
 console.log(div);
 
-alumno_obj.alumnos.forEach((alumnos)=> {
+alumno_obj.alumnos.forEach((alumnos))=> {
     div.innerHTML += "Nombre:" + alumno_obj.nom + "<br>";
 }
 
